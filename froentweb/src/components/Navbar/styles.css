@@ -1,5 +1,16 @@
 .main-nav {
   padding-left: 40px;
   min-height: 70px;
-  background-color: #F6F6F6;
+  background-color: #1890FF;
+}
+
+.text-navbar {
+   color: #FFFFFF;
+   font-style: normal; 
+   display: flex;
+   align-items: center;
+}
+
+.nav-logo-text, .nav-logo-text:hover {
+  color: #fff;
 }

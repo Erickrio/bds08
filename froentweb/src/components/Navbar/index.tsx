@@ -6,7 +6,7 @@ const Navbar = () => {
   return (
     <nav className="navbar main-nav">
       <div className="nav-logo-text">
-        <h4 className="text-primary">Github API</h4>
+        <h4 className="text-navbar">Github API</h4>
       </div>
     </nav>
   );
