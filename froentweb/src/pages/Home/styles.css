@@ -30,3 +30,22 @@
   letter-spacing: 0.02em;
   color: #7e7e7e;
 }
+
+
+@media (min-width: 576px) {
+  .home-container {
+    padding: 15px;
+    font-size: 40px;
+  }
+
+  .home-content-container h1 {
+    width: 506px;
+    margin-bottom: 20px;
+  }
+
+  .home-container  p {
+    width: 506px;
+    margin-bottom: 20px;
+  }
+
+}
