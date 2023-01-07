@@ -5,9 +5,9 @@ import './styles.css';
 const Navbar = () => {
   return (
     <nav className="navbar main-nav">
-      <div className="nav-logo-text">
+      <Link to="/" className="nav-logo-text">
         <h4 className="text-navbar">Github API</h4>
-      </div>
+      </Link>
     </nav>
   );
 };

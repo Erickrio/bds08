@@ -64,6 +64,15 @@
   border-radius: 6px;
 }
 
+.description-container h5 {
+  color: #1890FF;
+  display: flex;
+  align-items: center;
+  font-family: 'Roboto';
+  font-style: normal;
+  width: 534px;
+}
+
 @media (min-width: 576px) {
   .search-input {
     width: 480px; 
