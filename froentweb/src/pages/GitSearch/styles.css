@@ -73,6 +73,17 @@
   width: 534px;
 }
 
+.img-container {
+  display: flex;
+  width: 247px;
+  height: 200px;
+  margin: 25px 0px 25px 25px;
+}
+
+.img-container img{
+  border-radius: 100%;
+}
+
 @media (min-width: 576px) {
   .search-input {
     width: 480px; 

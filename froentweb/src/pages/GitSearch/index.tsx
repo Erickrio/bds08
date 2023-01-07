@@ -32,8 +32,19 @@ const GitSearch = () => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     console.log('clicou no botão');
-   
+
+    axios
+      .get(`https://api.github.com/users/${formData.login}`)
+      .then((response) => {
+        setGitProfile(response.data);
+        console.log(response.data);
+      })
+      .catch((error) => {
+        setGitProfile(undefined);
+        console.log(error);
+      });
   };
+
   return (
     <>
       <div className="git-search-container">
@@ -57,18 +68,18 @@ const GitSearch = () => {
         </div>
       </div>
       <>
-        * <div className="container info-container">
+        <div className="container info-container">
           <div className="container img-container">
-            <p>TESTE</p>
+            <img src={gitProfile?.avatar_url} alt="" />
           </div>
           <div className="container description-container">
             <h5>Informações</h5>
             <ResultCard title="Perfil" description="erickrio" />
-            <ResultCard title="Seguidores"  description="0"  />
-            <ResultCard title="Localidade"  description="RJ"  />
-            <ResultCard title="Name"  description="Erick"  />
+            <ResultCard title="Seguidores" description="0" />
+            <ResultCard title="Localidade" description="RJ" />
+            <ResultCard title="Name" description="Erick" />
           </div>
-        </div> 
+        </div>
       </>
     </>
   );
