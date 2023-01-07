@@ -1,3 +1,4 @@
+import ResultCard from '../../components/ResultCard';
 import './styles.css';
 
 
@@ -22,7 +23,13 @@ const GitSearch = () => {
       <>
         <div className="container info-container">
            <div className="container img-container">
-            <p>Imagem</p>
+           </div>
+           <div className="container description-container">
+            <h5>Informações</h5>
+           <ResultCard title={''} description={''}/>
+           <ResultCard title={''} description={''}/>
+           <ResultCard title={''} description={''}/>
+           <ResultCard title={''} description={''}/>
            </div>
         </div>
       </></>
