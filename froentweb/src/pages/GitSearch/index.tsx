@@ -67,7 +67,7 @@ const GitSearch = () => {
         </form>
       </div>
 
-      {gitProfile && (
+       {gitProfile && (
         <>
           <div className="container info-container">
             <div className="container img-container">
@@ -82,7 +82,7 @@ const GitSearch = () => {
             </div>
           </div>
         </>
-      )}
+      )} 
     </div>
   );
 };
