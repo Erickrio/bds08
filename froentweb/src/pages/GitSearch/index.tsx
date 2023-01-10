@@ -1,6 +1,7 @@
 import axios from 'axios';
 import ResultCard from '../../components/ResultCard';
 import { useState } from 'react';
+import GitSearchInfoLoader from './GitSearchInfoLoader';
 
 import './styles.css';
 
@@ -18,7 +19,7 @@ type GitProfile = {
 
 const GitSearch = () => {
   const [gitProfile, setGitProfile] = useState<GitProfile>();
-
+  const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState<FormData>({
     login: '',
   });
@@ -33,7 +34,7 @@ const GitSearch = () => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     console.log('clicou no botão');
-
+    setIsLoading(true);
     axios
       .get(`https://api.github.com/users/${formData.login}`)
       .then((response) => {
@@ -43,11 +44,17 @@ const GitSearch = () => {
       .catch((error) => {
         setGitProfile(undefined);
         console.log(error);
+      }).finally(() => {
+        setIsLoading(false);
       });
   };
 
   return (
     <div className="git-search-container">
+       {isLoading ? (
+              <GitSearchInfoLoader />
+            ) : (
+              <>
       <div className="container search-container">
         <h1>Encontre um perfil Github</h1>
         <form onSubmit={handleSubmit}>
@@ -66,7 +73,8 @@ const GitSearch = () => {
           </div>
         </form>
       </div>
-
+      </>  
+      )}
        {gitProfile && (
         <>
           <div className="container info-container">
