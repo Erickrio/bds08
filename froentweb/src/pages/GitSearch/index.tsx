@@ -1,6 +1,7 @@
 import axios from 'axios';
-import { useState } from 'react';
 import ResultCard from '../../components/ResultCard';
+import { useState } from 'react';
+
 import './styles.css';
 
 type FormData = {
@@ -46,42 +47,43 @@ const GitSearch = () => {
   };
 
   return (
-    <>
-      <div className="git-search-container">
-        <div className="container search-container">
-          <h1>Encontre um perfil Github</h1>
-          <form onSubmit={handleSubmit}>
-            <div className="form-container">
-              <input
-                type="text"
-                name="login"
-                value={formData.login}
-                className="search-input"
-                placeholder="Usuário Github"
-                onChange={handleChange}
-              />
-              <button type="submit" className="btn btn-primary search-button">
-                Encontrar
-              </button>
-            </div>
-          </form>
-        </div>
+    <div className="git-search-container">
+      <div className="container search-container">
+        <h1>Encontre um perfil Github</h1>
+        <form onSubmit={handleSubmit}>
+          <div className="form-container">
+            <input
+              type="text"
+              name="login"
+              value={formData.login}
+              className="search-input"
+              placeholder="Usuário Github"
+              onChange={handleChange}
+            />
+            <button type="submit" className="btn btn-primary search-button">
+              Encontrar
+            </button>
+          </div>
+        </form>
       </div>
-      <>
-        <div className="container info-container">
-          <div className="container img-container">
-            <img src={gitProfile?.avatar_url} alt="" />
+
+      {gitProfile && (
+        <>
+          <div className="container info-container">
+            <div className="container img-container">
+              <img src={gitProfile?.avatar_url} alt="" />
+            </div>
+            <div className="container description-container">
+              <h5>Informações</h5>
+              <ResultCard title="Perfil" description={gitProfile?.url} />
+              <ResultCard title="Seguidores" description={gitProfile?.followers} />
+              <ResultCard title="Localidade" description={gitProfile?.location}  />
+              <ResultCard title="Name" description={gitProfile?.name} />
+            </div>
           </div>
-          <div className="container description-container">
-            <h5>Informações</h5>
-            <ResultCard title="Perfil" description="erickrio" />
-            <ResultCard title="Seguidores" description="0" />
-            <ResultCard title="Localidade" description="RJ" />
-            <ResultCard title="Name" description="Erick" />
-          </div>
-        </div>
-      </>
-    </>
+        </>
+      )}
+    </div>
   );
 };
 
